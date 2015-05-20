@@ -1,0 +1,8 @@
+{
+  "name": "visit-combyne",
+  "version": "1.0.1",
+  "description": "Visits Combyne nodes in the AST",
+  "main": "index.js",
+  "author": "Tim Branyen (@tbranyen)",
+  "license": "MIT"
+}
