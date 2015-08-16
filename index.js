@@ -33,6 +33,9 @@ function recurse(nodes, test) {
           memo = memo.concat(recurse([node], test));
         }
       }).filter(Boolean), test, memo));
+
+      // Recurse over node.els to detect nested conditional expressions
+      memo.push.apply(memo, recurse([node.els], test));
     }
 
     if (node.elsif) {
@@ -41,6 +44,9 @@ function recurse(nodes, test) {
           memo = memo.concat(recurse([node], test));
         }
       }).filter(Boolean), test, memo));
+
+      // Recurse over node.elsif to detect nested conditional expressions
+      memo.push.apply(memo, recurse([node.elsif], test));
     }
 
     memo.push.apply(memo, recurse(node.nodes, test, memo));
