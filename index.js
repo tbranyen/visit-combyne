@@ -55,4 +55,10 @@ function recurse(nodes, test) {
   return memo;
 }
 
-module.exports = recurse;
+// Support AMD and CJS.
+if (typeof define === 'function' && typeof define.amd === 'object') {
+  define(function() { return recurse; });
+}
+else if (module && module.exports) {
+  module.exports = recurse;
+}
